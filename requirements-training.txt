@@ -1,0 +1,3 @@
+# Final single-model training. Inference does not import SciPy.
+-r code/requirements.txt
+scipy==1.18.1

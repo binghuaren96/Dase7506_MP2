@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+runs/
+.DS_Store
+Thumbs.db
+
+# Local generated outputs. Final assets and evidence remain trackable.
+/cache/
+/tmp/
+/dist/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Course datasets are obtained separately in the minimal submission.
+/code/data/candidates/
+/code/data/gsm8k_*.jsonl

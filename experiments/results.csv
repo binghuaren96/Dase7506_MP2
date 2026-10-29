@@ -1,0 +1,46 @@
+study,method,evaluation,population,correct,n,accuracy_percent,seed,l2,fold_nets,notes
+matched_representation,candidate_bt,train_oof,answer_disagreement,1682,2114,79.5648060549,,0.01,,Same support/folds/raw embedding normalization/question weights
+matched_representation,candidate_bt,validation,answer_disagreement,288,355,81.1267605634,,0.01,,
+matched_representation,group_bt,train_oof,answer_disagreement,1596,2114,75.4966887417,,0.01,,Same support/folds/raw embedding normalization/question weights
+matched_representation,group_bt,validation,answer_disagreement,283,355,79.7183098592,,0.01,,
+matched_representation,group_shape_bt,train_oof,answer_disagreement,1713,2114,81.0312204352,,0.01,,Same support/folds/raw embedding normalization/question weights
+matched_representation,group_shape_bt,validation,answer_disagreement,299,355,84.2253521127,,0.01,,
+historical_context,majority_vote,validation,answer_disagreement,245,355,69.0140845070,,,,Initial numeric-answer majority; full validation 688/798; not matched final support/statistics
+historical_context,independent_mlp,validation,answer_disagreement,281,355,79.1549295775,42,,,Historical E1; selected epoch5; full validation 717/798; not matched final support/statistics
+historical_context,centered_mlp_raw,validation,answer_disagreement,288,355,81.1267605634,42,,,Historical E2; selected epoch19; full validation 727/798; not matched final support/statistics
+historical_context,centered_mlp_valid_mask,validation,answer_disagreement,290,355,81.6901408451,42,,,Frozen E2 diagnostic; same weights; full validation 733/798; not matched final support/statistics
+historical_context,grouped_mlp,validation,answer_disagreement,291,355,81.9718309859,42,,,Historical E3; selected epoch20; full validation 734/798; not matched final support/statistics
+historical_context,equal_e2_e3_fusion,validation,answer_disagreement,298,355,83.9436619718,17,,,Validation-selected historical E10 recipe; full validation 741/798; not matched final support/statistics
+drop_one_feature,drop_support_fraction,train_oof,answer_disagreement,1716,2114,81.1731315043,,0.01,2;-2;3,Refit after deleting one feature; net=3
+drop_one_feature,drop_log_variance,train_oof,answer_disagreement,1702,2114,80.5108798486,,0.01,-3;-5;-3,Refit after deleting one feature; net=-11
+drop_one_feature,drop_mean_pair_cosine,train_oof,answer_disagreement,1713,2114,81.0312204352,,0.01,6;-1;-5,Refit after deleting one feature; net=0
+drop_one_feature,drop_signed_log_abs,train_oof,answer_disagreement,1713,2114,81.0312204352,,0.01,2;0;-2,Refit after deleting one feature; net=0
+drop_one_feature,drop_integer,train_oof,answer_disagreement,1696,2114,80.2270577105,,0.01,-7;-9;-1,Refit after deleting one feature; net=-17
+drop_one_feature,drop_zero,train_oof,answer_disagreement,1707,2114,80.7473982971,,0.01,1;-2;-5,Refit after deleting one feature; net=-6
+drop_one_feature,drop_negative,train_oof,answer_disagreement,1710,2114,80.8893093661,,0.01,0;-1;-2,Refit after deleting one feature; net=-3
+drop_one_feature,drop_exact_in_question,train_oof,answer_disagreement,1713,2114,81.0312204352,,0.01,0;0;0,Refit after deleting one feature; net=0
+drop_one_feature,drop_signed_log_relative_question_max,train_oof,answer_disagreement,1705,2114,80.6527909177,,0.01,0;-4;-4,Refit after deleting one feature; net=-8
+drop_one_feature,drop_support_fraction,validation,answer_disagreement,299,355,84.2253521127,,0.01,,Best OOF deletion; validation tied; not adopted
+bounded_refinement,candidate_shape_bt_l2_0p01,train_oof,answer_disagreement,1708,2114,80.7947019868,,0.01,,Original group_shape_bt .01 retained under predeclared gate
+bounded_refinement,group_shape_bt_l2_0p003,train_oof,answer_disagreement,1709,2114,80.8420056764,,0.003,,Original group_shape_bt .01 retained under predeclared gate
+bounded_refinement,group_shape_bt_l2_0p03,train_oof,answer_disagreement,1723,2114,81.5042573321,,0.03,,Original group_shape_bt .01 retained under predeclared gate
+margin_fallback,candidate,selected_all_oof,answer_disagreement,1728,2114,81.7407757805,,,,Rule selected and evaluated on same OOF; optimistic training selection
+margin_fallback,candidate,nested_oof,answer_disagreement,1711,2114,80.9366130558,,,-1;2;-3,Inner-fold rule tuning; not adopted
+margin_fallback,candidate,validation,answer_disagreement,297,355,83.6619718310,,,,
+margin_fallback,majority,selected_all_oof,answer_disagreement,1716,2114,81.1731315043,,,,Rule selected and evaluated on same OOF; optimistic training selection
+margin_fallback,majority,nested_oof,answer_disagreement,1709,2114,80.8420056764,,,0;-4;0,Inner-fold rule tuning; not adopted
+margin_fallback,majority,validation,answer_disagreement,297,355,83.6619718310,,,,
+compact_model_context,compact_linear_logloss,train_oof,answer_disagreement,1652,2114,78.1456953642,,,,E15; PCA32+16 descriptors; logloss; not matched final feature space
+compact_model_context,compact_catboost_logloss,train_oof,answer_disagreement,1623,2114,76.7738883633,42,,,E15; PCA32+16 descriptors; logloss; not matched final feature space
+compact_model_context,compact_catboost_logloss,train_oof,answer_disagreement,1627,2114,76.9631031220,17,,,E15; PCA32+16 descriptors; logloss; not matched final feature space
+compact_model_context,compact_catboost_pairlogit,train_oof,answer_disagreement,1627,2114,76.9631031220,42,,,E15; PCA32+16 descriptors; pairlogit; not matched final feature space
+compact_model_context,compact_catboost_pairlogit,train_oof,answer_disagreement,1638,2114,77.4834437086,17,,,E15; PCA32+16 descriptors; pairlogit; not matched final feature space
+set_interaction_context,b_independent_s42,train_oof,answer_disagreement,1633,2114,77.2469252602,42,,,Fixed20epochs; matched per-seed initialization and schedules
+set_interaction_context,b_independent_s42,validation,answer_disagreement,286,355,80.5633802817,42,,,
+set_interaction_context,b_set_s42,train_oof,answer_disagreement,1636,2114,77.3888363292,42,,,Fixed20epochs; matched per-seed initialization and schedules
+set_interaction_context,b_set_s42,validation,answer_disagreement,283,355,79.7183098592,42,,,
+set_interaction_context,b_independent_s17,train_oof,answer_disagreement,1640,2114,77.5780510880,17,,,Fixed20epochs; matched per-seed initialization and schedules
+set_interaction_context,b_independent_s17,validation,answer_disagreement,281,355,79.1549295775,17,,,
+set_interaction_context,b_set_s17,train_oof,answer_disagreement,1626,2114,76.9157994324,17,,,Fixed20epochs; matched per-seed initialization and schedules
+set_interaction_context,b_set_s17,validation,answer_disagreement,287,355,80.8450704225,17,,,
+frozen_final,group_shape_bt,official_test,answer_disagreement,387,467,82.8693790150,,0.01,,"Single submitted checkpoint; public bank, not blinded evaluation"

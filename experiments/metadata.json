@@ -1,0 +1,221 @@
+{
+  "protocol": "dase7506-mp2-open-hard-verifier-v5",
+  "release_tag": "review-v1",
+  "repository": "https://github.com/binghuaren96/Dase7506_MP2",
+  "report_status": "Self-reviewed and internally checked; owner review pending",
+  "course_submission_created": false,
+  "model": {
+    "method": "group_linear_bt",
+    "variant": "group_shape_bt",
+    "l2": 0.01,
+    "training_questions": 2114,
+    "feature_dimension": 1033,
+    "configuration": "artifacts/final/config.json",
+    "random_seed": null
+  },
+  "checkpoint": {
+    "config.json": {
+      "bytes": 79,
+      "sha256": "569df1a305f77498f2048be5eca3ad3ce46c8a084294d02c7a627acd8d27b0fc"
+    },
+    "weights.npz": {
+      "bytes": 26110,
+      "sha256": "c4618209bb354351794d1596ba2ef428744fbe13be620e00fc40603281b67d72"
+    }
+  },
+  "total_inference_asset_bytes": 26189,
+  "inference_source_sha256": {
+    "code/method.py": "90aa3a757c86ab0ce93639d1645c581c984d846712f559e83dd894277030fc42",
+    "code/common.py": "aecd10f7ff2e9e82ac5673d34d576e122caac51d2caaa7c7a8aa05906da51f6c",
+    "code/predict.py": "e7a627fbdc9ef8d4ab3189a6fa5ac02d56ae703ccd1a81507aea0bd66e042162",
+    "code/score_predictions.py": "fe12b809b82117aea722e5dfef7a55a88950a7cf50c49ec2ea007ea847959960",
+    "code/mp2/__init__.py": "a15f4d73d7aff7e1d5e3ea889fb91b56226007fcc9ffa804ffc09bedcfc6cb70",
+    "code/mp2/selection.py": "b15710e01e225d305097fcb2262ee3180e932de2a9180029300a2934fc76a97f",
+    "code/mp2/group_linear.py": "85e03990a914e24f005947668d10b19018638eb1ae7b708f327989a62507c2ab"
+  },
+  "data": {
+    "upstream_repository": "xudongwu-0/DASE7506-MP2",
+    "upstream_commit": "bb801f4f2e7629d270df765ab12c333b2dc616bb",
+    "manifest": "code/data/manifest.json",
+    "manifest_sha256": "8b3721d458e48c87eab3a28f660e663981b10617b6e7321123c6ff30b1fbe825"
+  },
+  "validation": {
+    "complete": {
+      "correct": 742,
+      "n": 798
+    },
+    "non_all_correct": {
+      "correct": 363,
+      "n": 419
+    },
+    "answer_disagreement": {
+      "correct": 299,
+      "n": 355
+    }
+  },
+  "official_test": {
+    "correct": 387,
+    "n": 467,
+    "accuracy": 82.86937901498929,
+    "score_file": "experiments/test-score.json",
+    "public_bank_reuse_note": "Several historical frozen methods were evaluated; not a blinded test.",
+    "score_json_sha256": "b11efbde8d7a3f5e5c64afc401e7cc41bccca64a9b880e56994da0457f3e9d4b"
+  },
+  "training": {
+    "optimizer": "L-BFGS-B",
+    "initialization": "zero",
+    "l2": 0.01,
+    "max_iterations": 500,
+    "ftol": 1e-10,
+    "gtol": 1e-07,
+    "maxls": 50,
+    "standard_deviation_floor": 1e-06,
+    "original_full_fit": {
+      "variant": "group_shape_bt",
+      "converged": true,
+      "iterations": 71,
+      "function_evaluations": 80,
+      "loss": 0.26132305666437405,
+      "gradient_max_abs": 5.895621121565758e-07,
+      "l2": 0.01,
+      "informative_questions": 2114,
+      "standardizer_actions": 8456,
+      "valid_feature_actions": 5172,
+      "pairs": 3058,
+      "pair_weight_sum": 2114.0,
+      "feature_dimension": 1033,
+      "optimizer": "L-BFGS-B",
+      "max_iterations": 500,
+      "standardizer_scope": "all_four_raw_candidates_of_supplied_informative_train_questions_only",
+      "shape_standardizer_scope": "valid_groups_of_supplied_informative_train_questions_only"
+    },
+    "original_full_fit_seconds": 1.0943246000024374
+  },
+  "comparison_reproduction": {
+    "folds": 3,
+    "seed": 20261028,
+    "planned_fits": 36,
+    "main_methods": [
+      "candidate_bt",
+      "group_bt",
+      "group_shape_bt"
+    ],
+    "feature_ablation": "nine fixed drop-one refits",
+    "statistics": "fit only within informative training fold",
+    "result_table": "experiments/results.csv"
+  },
+  "resources": {
+    "hardware": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.15 (main, Oct 14 2026, 01:08:45) [MSC v.1944 64 bit (AMD64)]",
+    "thread_environment": {
+      "OMP_NUM_THREADS": "4",
+      "OPENBLAS_NUM_THREADS": "4",
+      "MKL_NUM_THREADS": "4",
+      "BLIS_NUM_THREADS": "4",
+      "NUMEXPR_NUM_THREADS": "4",
+      "VECLIB_MAXIMUM_THREADS": "4"
+    },
+    "original_test_predict_plus_score_seconds": 1.301900200000091,
+    "timing_scope": "Fresh prediction startup through independent scorer exit, including imports/loading.",
+    "reference_cpu_certification": false,
+    "selected_stages": [
+      {
+        "stage": "E17",
+        "fits": 28,
+        "fit_seconds": 32.29327619999458
+      },
+      {
+        "stage": "E20",
+        "fits": 18,
+        "fit_seconds": 16.83056470000156
+      },
+      {
+        "stage": "E21",
+        "fits": 28,
+        "fit_seconds": 42.512225099993884
+      }
+    ],
+    "scope_note": "Selected recorded fit costs, not whole-project lifetime cost; implementation/review excluded."
+  },
+  "independent_reproduction": {
+    "status": "passed",
+    "date": "2026-10-29",
+    "fresh_environment": true,
+    "software": {
+      "python": "3.12.15",
+      "numpy": "2.5.3",
+      "scipy": "1.18.1"
+    },
+    "dependency_check": "passed",
+    "focused_unit_tests": 27,
+    "fixed_training_fits": 1,
+    "retrained_assets_byte_identical": true,
+    "fixed_comparison_fits": 36,
+    "all_twelve_comparison_counts_match_record": true,
+    "comparison_fold_informative_counts": [
+      704,
+      705,
+      705
+    ],
+    "validation_choices_identical_to_historical_checkpoint": 798,
+    "validation": {
+      "correct": 742,
+      "n": 798
+    },
+    "test": {
+      "correct": 387,
+      "n": 467,
+      "accuracy": 82.86937901498929
+    },
+    "fixed_test_reproduction_runs": 1,
+    "new_test_configurations": 0,
+    "parameter_selection": false,
+    "full_retrain_fit_seconds": 2.894899799997802,
+    "comparison_fit_seconds": 52.21057219999784,
+    "test_predict_plus_score_seconds": 1.539792799998395,
+    "process_measurements": [
+      {
+        "name": "dependencies",
+        "returncode": 0,
+        "seconds": 1.0574126999999862
+      },
+      {
+        "name": "unit-tests",
+        "returncode": 0,
+        "seconds": 17.88231199999791
+      },
+      {
+        "name": "training",
+        "returncode": 0,
+        "seconds": 5.084114199999021
+      },
+      {
+        "name": "comparisons",
+        "returncode": 0,
+        "seconds": 72.4925280000025
+      },
+      {
+        "name": "validation-predict",
+        "returncode": 0,
+        "seconds": 1.165146300001652
+      },
+      {
+        "name": "validation-score",
+        "returncode": 0,
+        "seconds": 0.7820740000024671
+      },
+      {
+        "name": "test-predict",
+        "returncode": 0,
+        "seconds": 0.9489440999968792
+      },
+      {
+        "name": "test-score",
+        "returncode": 0,
+        "seconds": 0.5908487000015157
+      }
+    ],
+    "scope": "One pre-frozen checkpoint and fixed reproduction matrix; no test-case analysis or model selection."
+  }
+}

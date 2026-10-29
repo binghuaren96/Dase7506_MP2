@@ -1,0 +1,5 @@
+{
+  "method": "group_linear_bt",
+  "variant": "group_shape_bt",
+  "l2": 0.01
+}
